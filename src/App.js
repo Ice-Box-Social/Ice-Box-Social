@@ -1,4 +1,7 @@
 import './App.css';
+import {useState} from "react";
+import NotesList from './Components/Notes/NotesList';
+import Navbar from './Components/Navbar/Navbar';
 
 const App = () => {
 
@@ -33,6 +36,15 @@ const App = () => {
 
   return (
     <div className="App">
+            <Navbar />
+      <div className='logo-img-div'>
+        <img className='logo-img' src='./img/logo.svg'></img>
+      </div>
+              <NotesList 
+            notes={notes}
+            handleAddNote={addNote}
+            handleDeleteNote={deleteNote}>
+        </NotesList>
     </div>
   );
 }
