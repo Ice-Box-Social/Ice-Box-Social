@@ -1,7 +1,4 @@
 import './App.css';
-import { useState, useEffect } from 'react';
-import NotesList from './Components/Notes/NotesList';
-
 
 const App = () => {
 
@@ -36,11 +33,6 @@ const App = () => {
 
   return (
     <div className="App">
-        <NotesList 
-            notes={notes}
-            handleAddNote={addNote}
-            handleDeleteNote={deleteNote}>
-        </NotesList>
     </div>
   );
 }
