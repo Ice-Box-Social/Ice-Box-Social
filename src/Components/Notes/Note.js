@@ -1,6 +1,5 @@
 // import { MdDeleteForever } from 'react-icons/md';
 import './Note.css';
-import star from './Star.svg';
 
 const Note = ({ id, text, stickerIndex }) => {
 	return (
@@ -8,7 +7,7 @@ const Note = ({ id, text, stickerIndex }) => {
 			<span>{text}</span>
 			<div className='note-footer'>
 				<small>{id}</small>
-				<img src={star} alt="Sticker" />
+				<img src={"./img/Star.svg"} alt="Sticker" />
 			</div>
 		</div>
 	);

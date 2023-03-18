@@ -28,7 +28,7 @@ const App = () => {
 		// setNotes(newNotes);
 	};
 
-  // TODO: Implement deleting a note? Nah probably note necessary
+  // TODO: Implement deleting a note? Nah probably not necessary
   const deleteNote = (id) => {
 		// const newNotes = notes.filter((note) => note.id !== id);
 		// setNotes(newNotes);
