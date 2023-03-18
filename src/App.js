@@ -12,6 +12,8 @@ const App = () => {
       id: 'testNoteId',
       text: 'Test Note',
       date: '16/03/2023',
+      stickerIndex: 0,
+      noteColor: '#E6D1FF',
     }
   ])
 
@@ -40,11 +42,13 @@ const App = () => {
       <div className='logo-img-div'>
         <img className='logo-img' src='./img/logo.svg'></img>
       </div>
-              <NotesList 
+        <div className='Notes-List-Container'>
+        <NotesList 
             notes={notes}
             handleAddNote={addNote}
             handleDeleteNote={deleteNote}>
         </NotesList>
+        </div>
     </div>
   );
 }

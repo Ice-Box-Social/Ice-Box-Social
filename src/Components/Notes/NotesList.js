@@ -15,6 +15,8 @@ const NotesList = ({
 					text={note.text}
 					date={note.date}
 					handleDeleteNote={handleDeleteNote}
+					stickerIndex = {note.stickerIndex}
+					noteColor = {note.noteColor}
 				/>
 			))}
 			<AddNote handleAddNote={handleAddNote} />

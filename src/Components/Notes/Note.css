@@ -1,9 +1,9 @@
 
 .note {
-	background-color: #E6D1FF;
+	/* background-color: #E6D1FF; */
 	border-radius: 10px;
 	padding: 1rem;
-	min-height: 170px;
+	min-height: 200px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -20,3 +20,12 @@
 	cursor: pointer;
 }
 
+.ice-image {
+	position: relative
+}
+
+.snowsmall {
+	position: absolute;
+	right: 10%;
+	top: -5%
+}
