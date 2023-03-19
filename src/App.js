@@ -2,8 +2,20 @@ import './App.css';
 import {useState} from "react";
 import NotesList from './Components/Notes/NotesList';
 import Navbar from './Components/Navbar/Navbar';
+import { ethers } from 'ethers';
+import { IntmaxWalletSigner } from "webmax";
 
 const App = () => {
+  const [account,setAccount] = useState(null);
+  const web3Handler = async()=>{
+      // const signer = new IntmaxWalletSigner();
+      // const account = await signer.connectToAccount();
+      // console.log(account);
+    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    setAccount(accounts[0]);
+    const provider = await new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+  }
 
   // The list of notes to display
   // TODO: Figure out how to fetch the notes list from database
@@ -38,17 +50,17 @@ const App = () => {
 
   return (
     <div className="App">
-            <Navbar />
+      <Navbar web3Handler={web3Handler} account={account}/>
       <div className='logo-img-div'>
         <img className='logo-img' src='./img/logo.svg'></img>
       </div>
-        <div className='Notes-List-Container'>
+      <div className='Notes-List-Container'>
         <NotesList 
             notes={notes}
             handleAddNote={addNote}
             handleDeleteNote={deleteNote}>
         </NotesList>
-        </div>
+      </div>
     </div>
   );
 }

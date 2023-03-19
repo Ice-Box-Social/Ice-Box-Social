@@ -1,12 +1,22 @@
 import React from "react";
 import './Navbar.css';
 
-const Navbar = ()=>{
+const Navbar = ({web3Handler,account})=>{
+
+    const trim = (address) =>{
+        return address.substr(0,3) + "..." + address.substr(address.length - 3,3);
+    }
+
     return (
         <div>
-            <button className="connect-wallet">
-                Connect Wallet
-            </button>
+            <>
+                {   account ?
+                    <div className="connect-wallet">{trim(account)}</div>:
+                    <button onClick={web3Handler} className="connect-wallet">
+                        Connect Wallet
+                    </button>
+                }
+            </>
             <abbr title="Create Notes">
                 <button className="create-task">
                     <img src="./img/create.png"></img>
