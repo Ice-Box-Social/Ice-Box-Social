@@ -21,8 +21,8 @@ const App = () => {
   // TODO: Figure out how to fetch the notes list from database
   const [notes, setNotes] = useState([
     {
-      id: 'testNoteId',
-      text: 'Test Note',
+      id: 'testNoteId123123123',
+      text: "Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem",
       date: '16/03/2023',
       stickerIndex: 0,
       noteColor: '#E6D1FF',
@@ -34,7 +34,7 @@ const App = () => {
       noteColor: '#99D4FF',
     },
     {
-      id: 'tesawdawtNoteId2',
+      id: 'tesawdawtNoteId3',
       text: 'Test Note',
       date: '16/03/2023',
       stickerIndex: 0,
