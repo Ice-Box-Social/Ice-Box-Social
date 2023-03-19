@@ -1,4 +1,5 @@
 import React from "react";
+import AddNoteContainer from "../Notes/AddNoteContainer/AddNoteContainer";
 import './Navbar.css';
 
 const Navbar = ({web3Handler,account})=>{
@@ -18,8 +19,8 @@ const Navbar = ({web3Handler,account})=>{
                 }
             </>
             <abbr title="Create Notes">
-                <button className="create-task" onClick={() => alert('Create Note Clicked')}>
-                    <img src="./img/create.png"></img>
+                <button className="create-task">
+                <AddNoteContainer></AddNoteContainer>
                 </button>
             </abbr>
         </div>
