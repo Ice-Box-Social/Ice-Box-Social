@@ -19,7 +19,7 @@ const NotesList = ({
 					noteColor = {note.noteColor}
 				/>
 			))}
-			<AddNote handleAddNote={handleAddNote} />
+			{/* <AddNote handleAddNote={handleAddNote} /> */}
 		</div>
 	);
 };
