@@ -16,9 +16,13 @@ const Note = ({ id, text, stickerIndex, noteColor }) => {
 			<img src={`./img/notes/Snowsmall${snowType}.svg`} alt='snow' className='snowsmall'></img>
 			<div className='note' style={{ backgroundColor: noteColor }}>
 				<div className='share-button'>
-					<button className='share-button-task'>
-                    <img src="./img/notes/Share-button.svg" alt='share button'></img>
-                </button>
+					<button
+						className='share-button-task'
+						onClick={() => {
+							alert('Share button clicked');
+						}}>
+						<img src="./img/notes/Share-button.svg" alt='share button'></img>
+					</button>
 				</div>
 				<span>{text}</span>
 				<div className='note-footer'>

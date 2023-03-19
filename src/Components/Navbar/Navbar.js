@@ -18,7 +18,7 @@ const Navbar = ({web3Handler,account})=>{
                 }
             </>
             <abbr title="Create Notes">
-                <button className="create-task">
+                <button className="create-task" onClick={() => alert('Create Note Clicked')}>
                     <img src="./img/create.png"></img>
                 </button>
             </abbr>
