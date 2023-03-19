@@ -8,7 +8,7 @@ export const Modal = ({
   modalRef,
   buttonRef,
   closeModal,
-  onSubmit
+  handleAddNote
 }) => {
   return ReactDOM.createPortal(
     <FocusTrap>
@@ -37,7 +37,7 @@ export const Modal = ({
             </svg>
           </button>
           <div className="modal-body">
-            <AddNotePopupForm onSubmit={onSubmit} />
+            <AddNotePopupForm handleAddNote={handleAddNote} />
           </div>
         </div>
       </aside>

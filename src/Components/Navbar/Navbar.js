@@ -20,7 +20,8 @@ const Navbar = ({web3Handler,account})=>{
             </>
             <abbr title="Create Notes">
                 <button className="create-task">
-                <AddNoteContainer></AddNoteContainer>
+                    {/* TODO: Implement on Submit */}
+                <AddNoteContainer handleAddNote={(text) => alert("Form Submitted")}></AddNoteContainer>
                 </button>
             </abbr>
         </div>

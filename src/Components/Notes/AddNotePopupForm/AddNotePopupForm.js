@@ -1,31 +1,19 @@
 import React from 'react';
+import AddNote from '../AddNote'
+import './AddNotePopupForm.css'
 
 export const AddNotePopupForm = (
-    // { onSubmit }
+    { handleAddNote }
     ) => {
   return (
-    <form 
-    // onSubmit={onSubmit}
-    >
-      <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input className="form-control" id="name" />
+    <div>
+      <div> New Sticker</div>
+      <div> Leave your message on the sticky note</div>
+      <div className='add-note-container'>
+      <AddNote handleAddNote={handleAddNote}></AddNote>
       </div>
-      <div className="form-group">
-        <label htmlFor="email">Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          placeholder="name@example.com"
-        />
-      </div>
-      <div className="form-group">
-        <button className="form-control btn btn-primary" type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
+      <button className='submit-note-button'>Post it</button>
+    </div>
   );
 };
 export default AddNotePopupForm;

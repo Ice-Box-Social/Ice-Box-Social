@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './AddNote.css'
 
 const AddNote = ({ handleAddNote }) => {
 	const [noteText, setNoteText] = useState('');
@@ -24,7 +25,8 @@ const AddNote = ({ handleAddNote }) => {
 	};
 
 	return (
-		<div className='note new'>
+		<div className='add-note-container'>
+			<div className='note new'>
 			<textarea
 				rows='8'
 				cols='10'
@@ -40,6 +42,7 @@ const AddNote = ({ handleAddNote }) => {
 					Save
 				</button>
 			</div>
+		</div>
 		</div>
 	);
 };
