@@ -10,8 +10,9 @@ const NotesList = ({
 	return (
 		<div className='notes-list-container'>
 					<div className='notes-list'>
-			{notes.map((note) => (
+			{notes.map((note,idx) => (
 				<Note
+					key={idx}
 					id={note.id}
 					text={note.text}
 					date={note.date}

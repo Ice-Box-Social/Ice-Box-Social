@@ -11,9 +11,14 @@ const Note = ({ id, text, stickerIndex, noteColor }) => {
 
 	var shortenedId = id.substring(0, Math.min(20, id.length)) + '...';
 
+	const snowPosition = ()=>{
+		let val = Math.floor(5 + Math.random()*60);
+		return val + "%";
+	}
+
 	return (
 		<div className='ice-image'>
-			<img src={`./img/notes/Snowsmall${snowType}.svg`} alt='snow' className='snowsmall'></img>
+			<img src={`./img/notes/Snowsmall${snowType}.svg`} style={{right: snowPosition()}} alt='snow' className='snowsmall'></img>
 			<div className='note' style={{ backgroundColor: noteColor }}>
 				<div className='share-button'>
 					<button
