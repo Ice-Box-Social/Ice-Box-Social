@@ -27,14 +27,14 @@ const App = () => {
       stickerIndex: 0,
       noteColor: '#E6D1FF',
     },{
-      id: 'testNoteId',
+      id: 'testN12oteId',
       text: 'Test Note',
       date: '16/03/2023',
       stickerIndex: 1,
       noteColor: '#99D4FF',
     },
     {
-      id: 'testNoteId',
+      id: 'tesawdawtNoteId2',
       text: 'Test Note',
       date: '16/03/2023',
       stickerIndex: 0,
