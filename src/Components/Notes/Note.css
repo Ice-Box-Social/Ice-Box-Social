@@ -29,3 +29,10 @@
 	right: 10%;
 	top: -5%
 }
+
+.share-button-task {
+	background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+	hovor-color: black;
+}

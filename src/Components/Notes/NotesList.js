@@ -1,10 +1,10 @@
 import Note from './Note';
-import AddNote from './AddNote';
+// import AddNote from './AddNote';
 import './NotesList.css'
 
 const NotesList = ({
 	notes,
-	handleAddNote,
+	// handleAddNote,
 	handleDeleteNote,
 }) => {
 	return (

@@ -1,7 +1,6 @@
 // import { MdDeleteForever } from 'react-icons/md';
 import './Note.css';
 import * as React from 'react';
-import Button from '@mui/material/Button';
 
 const Note = ({ id, text, stickerIndex, noteColor }) => {
 
@@ -14,20 +13,16 @@ const Note = ({ id, text, stickerIndex, noteColor }) => {
 
 	return (
 		<div className='ice-image'>
-			<img src={`./img/notes/Snowsmall${snowType}.svg`} className='snowsmall'></img>
+			<img src={`./img/notes/Snowsmall${snowType}.svg`} alt='snow' className='snowsmall'></img>
 			<div className='note' style={{ backgroundColor: noteColor }}>
 				<div className='share-button'>
-					{/* <img src='./img/notes/Share-button.svg'></img> */}
-					<Button
-						variant='text'
-						onClick={() => {
-							alert('Share button clicked');
-						}}
-					>...</Button>
+					<button className='share-button-task'>
+                    <img src="./img/notes/Share-button.svg" alt='share button'></img>
+                </button>
 				</div>
 				<span>{text}</span>
 				<div className='note-footer'>
-					<img src='./img/notes/scroll.svg'></img>
+					<img src='./img/notes/scroll.svg' alt='wallet icon'></img>
 					<small>{shortenedId}</small>
 					<img src={`./img/stickers/${stickerNames[stickerIndex]}.svg`} alt="Sticker" />
 				</div>
