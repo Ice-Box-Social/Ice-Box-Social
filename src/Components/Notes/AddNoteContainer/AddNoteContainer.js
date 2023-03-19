@@ -7,12 +7,12 @@ export class AddNoteContainer extends Component {
     this.setState({ isShown: true }, () => {
       this.closeButton.focus();
     });
-    this.toggleScrollLock();
+    // this.toggleScrollLock();
   };
   closeModal = () => {
     this.setState({ isShown: false });
     this.TriggerButton.focus();
-    this.toggleScrollLock();
+    // this.toggleScrollLock();
   };
   onKeyDown = (event) => {
     if (event.keyCode === 27) {
