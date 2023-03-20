@@ -7,6 +7,7 @@ const StickerPicker = ({selectedSticker, setSelectedSticker}) => {
 
 	return (
 		<div className='sticker-picker'>
+        <div>Pick your sticker!</div>
          {myList.map((item, index) => {
             return <img className={"sticker-picker-image" + ((index == selectedSticker) ? "-active":"")}
             src={`./img/stickers/${index}.svg`}

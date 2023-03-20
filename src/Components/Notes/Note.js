@@ -11,7 +11,7 @@ const Note = ({ id, text, stickerIndex, noteColor }) => {
 	var shortenedId = id.substring(0, Math.min(20, id.length)) + '...';
 
 	const snowPosition = ()=>{
-		let val = Math.floor(5 + Math.random()*60);
+		let val = Math.floor(5 + Math.random()*40);
 		return val + "%";
 	}
 
