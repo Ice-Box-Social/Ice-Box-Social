@@ -4,7 +4,6 @@ import * as React from 'react';
 
 const Note = ({ id, text, stickerIndex, noteColor }) => {
 
-	var stickerNames = ["Heart", "OK", "Sun", "Yes", "Star"];
 
 	// basically derives the snowtype from the id string
 	var snowType = (id.charCodeAt(id.length - 1) % 2) + 1;
@@ -33,7 +32,7 @@ const Note = ({ id, text, stickerIndex, noteColor }) => {
 				<div className='note-footer'>
 					<img src='./img/notes/scroll.svg' alt='wallet icon'></img>
 					<small>{shortenedId}</small>
-					<img src={`./img/stickers/${stickerNames[stickerIndex]}.svg`} alt="Sticker" />
+					<img src={`./img/stickers/${stickerIndex}.svg`} alt="Sticker" />
 				</div>
 			</div>
 		</div>

@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AddNotePopupForm } from '../AddNotePopupForm/AddNotePopupForm';
 import FocusTrap from 'focus-trap-react';
+
+import "./Modal.css"
 export const Modal = ({
   onClickOutside,
   onKeyDown,
@@ -37,7 +39,7 @@ export const Modal = ({
             </svg>
           </button>
           <div className="modal-body">
-            <AddNotePopupForm handleAddNote={handleAddNote} />
+            <AddNotePopupForm />
           </div>
         </div>
       </aside>
