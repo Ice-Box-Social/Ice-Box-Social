@@ -162,7 +162,7 @@ const App = () => {
     <div className="App">
       <Navbar web3Handler={web3Handler} account={account}/>
       <div className='logo-img-div'>
-        <img className='logo-img' src='./img/logo.svg'></img>
+        <img className='logo-img' src='./img/Logo.svg'></img>
       </div>
       <div className='Notes-List-Container'>
         <NotesList 

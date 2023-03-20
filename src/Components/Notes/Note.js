@@ -30,7 +30,7 @@ const Note = ({ id, text, stickerIndex, noteColor }) => {
 				</div>
 				<span>{text}</span>
 				<div className='note-footer'>
-					<img src='./img/notes/scroll.svg' alt='wallet icon'></img>
+					<img src='./img/notes/Scroll.svg' alt='wallet icon'></img>
 					<small>{shortenedId}</small>
 					<img src={`./img/stickers/${stickerIndex}.svg`} alt="Sticker" />
 				</div>

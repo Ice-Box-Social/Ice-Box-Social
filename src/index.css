@@ -22,9 +22,6 @@ code {
 }
 
 
-// For the poup form
-
-
 .modal-cover {
   position: fixed;
   top: 0;
@@ -50,7 +47,6 @@ code {
 }
 
 @media screen and (min-width: 500px) {
-  /* Center the Modal! */
   .modal-area {
     left: 50%;
     top: 50%;

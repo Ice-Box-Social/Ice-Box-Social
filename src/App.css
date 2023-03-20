@@ -17,8 +17,6 @@ body{
 }
 
 .Notes-List-Container {
-  /* display: flex; */
   justify-content: center;
-  /* height: 600px; */
   align-items: center;
 }
