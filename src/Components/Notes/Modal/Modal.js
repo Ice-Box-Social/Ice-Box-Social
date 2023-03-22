@@ -39,7 +39,7 @@ export const Modal = ({
             </svg>
           </button>
           <div className="modal-body">
-            <AddNotePopupForm />
+            <AddNotePopupForm closeModal={closeModal}/>
           </div>
         </div>
       </aside>
