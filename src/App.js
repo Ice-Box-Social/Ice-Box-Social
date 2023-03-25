@@ -13,8 +13,6 @@ const App = () => {
       // console.log(account);
     const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
     setAccount(accounts[0]);
-    const provider = await new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
   }
 
   // The list of notes to display
