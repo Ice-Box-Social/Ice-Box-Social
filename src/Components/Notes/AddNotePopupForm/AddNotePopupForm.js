@@ -10,9 +10,17 @@ import IceBoxContract from '../../../Contract/IceBoxMessage.json';
 import { ethers } from 'ethers';
 import { secp256k1 } from '@polybase/util';
 import axios from 'axios';
-import { ethPersonalSign } from '@polybase/eth'
+import { ethPersonalSign } from '@polybase/eth';
+import { Polybase } from "@polybase/client";
+
+const db = new Polybase({
+  defaultNamespace: "pk/0x593e1594134c988cec1d20de3050e6a001c843e88e54f1e94041fb21623946771da020a4f016e7074e6b6cb0ecb933cc285565bdd791aa67b462b72a359360c1/iceboxsocial",
+});
 
 export const AddNotePopupForm = ({closeModal}) => {
+
+  var mySig = "";
+  var myHeader = "";
 
   const [addNoteText, setAddNoteText] = useState("");
   const [selectedSticker, setSelectedSticker] = useState(0);
@@ -30,14 +38,14 @@ export const AddNotePopupForm = ({closeModal}) => {
       setLoading(true);
       const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      addToPolybase();
+      // addToPolybase();
       await provider.send("eth_requestAccounts", []);
       const signer = provider.getSigner();
       console.log("Account is: " + accounts[0]);
       console.log(IceBoxContract.abi);
       // old contract gnosis id: 0xa4d2e7Bf238916CD0677D5C8D328b713114d8b94
       // new contract id: 0x2E969B863AD66a00524189A02858D65FD7550A24
-      const Contract = new ethers.Contract("0x2E969B863AD66a00524189A02858D65FD7550A24",IceBoxContract.abi,signer);
+      const Contract = new ethers.Contract("0x9eD7d2968caAF2d5f4A7AD312db7f72171511C2b",IceBoxContract.abi,signer);
       const nftstorage = new NFTStorage({ token: process.env.REACT_APP_NFT_STORAGE_KEY })
       const data = new Blob([{
         text:addNoteText,
@@ -47,6 +55,8 @@ export const AddNotePopupForm = ({closeModal}) => {
       const cid = await nftstorage.storeBlob(data);
       console.log(cid);
       const response = await Contract.safeMint(accounts[0],cid);
+      const temp = await Contract.getCounter();
+      console.log(temp);
       // console.log(response);
       message.success("Notes Added Successfully!")
       setLoading(false);
@@ -61,6 +71,7 @@ export const AddNotePopupForm = ({closeModal}) => {
     try {
 
     // let privateKey = process.env.POLYBASE_PRIVATE_KEY;
+      // let privateKey = process.env.REACT_APP_NFT_STORAGE_KEY;
     var privateKey = 0x199e2434814e840f9e73f2dc4683f59e360d39115baa6d2827be70ffdba9e8a9n;
 
     const str_to_sign = `${timestamp}.${JSON.stringify(body)}`;
@@ -76,16 +87,8 @@ export const AddNotePopupForm = ({closeModal}) => {
 
   const addToPolybase = async (event) => {
     try {
-      // let private_key = process.env.REACT_APP_NFT_STORAGE_KEY;
 
-      var body = {
-        args : [
-          Date.now().toString(),
-          addNoteText.toString(),
-          selectedColor.toString(),
-          selectedSticker.toString()
-        ]
-      }
+      
 
 
       // var url = "pk%2F0x593e1594134c988cec1d20de3050e6a001c843e88e54f1e94041fb21623946771da020a4f016e7074e6b6cb0ecb933cc285565bdd791aa67b462b72a359360c1%2Ficeboxsocial/collections/User"
@@ -95,12 +98,21 @@ export const AddNotePopupForm = ({closeModal}) => {
       var version = 0;
       var timestamp = Date.now();
       var hash = 'eth-personal-sign';
-      let privateKey = secp256k1.generatePrivateKey();
+      // let privateKey = secp256k1.generatePrivateKey();
+      var body = {
+        'args' : [
+          timestamp.toString(),
+          addNoteText.toString(),
+          selectedColor.toString(),
+          selectedSticker.toString()
+        ]
+      }
+      var sig = createSig(timestamp, body);
 
-      var sig = createSig(timestamp, body, privateKey)
+      console.log(`Sig was: ${sig}`)
 
       var headers = {
-        // 'Accept' : 'application/json',
+        'Accept' : 'application/json',
         'X-Polybase-Signature' : `v=0,t=${timestamp},h=eth-personal-sign,sig=${sig}`,
       };
       // example header 
@@ -115,6 +127,28 @@ export const AddNotePopupForm = ({closeModal}) => {
       console.log(`Error creating record on PolyBase: ${error}`);
     }
 
+    async function createRecord () {
+      const collectionReference = db.collection("User");
+      const recordData = await collectionReference.create([
+        Date.now().toString(),
+          addNoteText.toString(),
+          selectedColor.toString(),
+          selectedSticker.toString()
+      ]);
+    }
+
+    // db.signer(async (data) => {
+    //   // A permission dialog will be presented to the user
+    //   const accounts = await eth.requestAccounts();
+    
+    //   // If there is more than one account, you may wish to ask the user which
+    //   // account they would like to use
+    //   const account = accounts[0];
+    
+    //   const sig = await eth.sign(data, account);
+    
+    //   return { h: "eth-personal-sign", sig };
+    // })
   
   }
 

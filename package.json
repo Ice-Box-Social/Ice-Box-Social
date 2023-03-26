@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@polybase/auth": "^0.3.38",
+    "@polybase/client": "^0.3.38",
     "@polybase/eth": "^0.3.38",
     "@polybase/util": "0.3.38",
     "@testing-library/jest-dom": "^5.16.5",
