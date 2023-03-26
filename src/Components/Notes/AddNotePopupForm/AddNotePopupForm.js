@@ -6,7 +6,7 @@ import { useState } from 'react';
 import ColorPicker from '../ColorPicker/ColorPicker';
 import { NFTStorage, Blob } from 'nft.storage'
 import { message } from 'antd';
-import IceBoxContract from '../../../Contract/IceBoxMessage.json'
+import IceBoxContract from '../../../Contract/IceBoxMessage.json';
 import { ethers } from 'ethers';
 
 export const AddNotePopupForm = ({closeModal}) => {
@@ -26,11 +26,14 @@ export const AddNotePopupForm = ({closeModal}) => {
       }
       setLoading(true);
       const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
-      const provider = await new ethers.providers.Web3Provider(window.ethereum);
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send("eth_requestAccounts", []);
       const signer = provider.getSigner();
-      console.log(accounts[0]);
+      console.log("Account is: " + accounts[0]);
       console.log(IceBoxContract.abi);
-      const Contract = new ethers.Contract("0xa4d2e7Bf238916CD0677D5C8D328b713114d8b94",IceBoxContract.abi,signer);
+      // old contract gnosis id: 0xa4d2e7Bf238916CD0677D5C8D328b713114d8b94
+      // new contract id: 0x2E969B863AD66a00524189A02858D65FD7550A24
+      const Contract = new ethers.Contract("0x2E969B863AD66a00524189A02858D65FD7550A24",IceBoxContract.abi,signer);
       const nftstorage = new NFTStorage({ token: process.env.REACT_APP_NFT_STORAGE_KEY })
       const data = new Blob([{
         text:addNoteText,
@@ -41,12 +44,22 @@ export const AddNotePopupForm = ({closeModal}) => {
       console.log(cid);
       const response = await Contract.safeMint(accounts[0],cid);
       console.log(response);
+      // await addToPolybase();
       message.success("Notes Added Successfully!")
       setLoading(false);
       closeModal();
     } catch (error) {
         setLoading(false);
         console.log(error);
+    }
+  }
+
+  const addToPolybase = async (event) => {
+    try {
+      
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
     }
   }
 
